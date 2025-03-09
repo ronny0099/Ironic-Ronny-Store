@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RonnySenpai Anime Merch</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #D3D3D3;
+            --primary-color: #00FFFF;
+            --secondary-color: #FFD700;
+            --card-bg: #1e1e1e;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            transition: background 0.5s, color 0.5s;
+        }
+        header {
+            background-color: #000;
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 48px;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .banner {
+            width: 100%;
+            height: 300px;
+            background: url('your-banner-image.jpg') no-repeat center;
+            background-size: cover;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .buttons, .toggle-mode {
+            margin: 20px 0;
+        }
+        .shop-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            background-color: var(--secondary-color);
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .shop-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+        .toggle-mode button {
+            padding: 10px 20px;
+            border: none;
+            background: var(--primary-color);
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .toggle-mode button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+        .product-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product {
+            width: 200px;
+            background: var(--card-bg);
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            animation: fadeInUp 1s ease-in-out;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+        }
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover img {
+            transform: scale(1.2);
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        #back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>RonnySenpai Anime Merch</h1>
+    </header>
+    <div class="banner"></div>
+    <div class="toggle-mode">
+        <button onclick="toggleMode()">🌗 Toggle Light/Dark Mode</button>
+    </div>
+    <div class="buttons">
+        <a href="#" class="shop-btn">Shop on Teespring</a>
+        <a href="#" class="shop-btn">Shop on Redbubble</a>
+    </div>
+    <div class="product-section">
+        <div class="product">
+            <img src="product1.jpg" alt="Anime T-Shirt">
+            <p>🔥 Anime T-Shirt</p>
+            <a href="#" class="shop-btn">Buy Now</a>
+        </div>
+        <div class="product">
+            <img src="product2.jpg" alt="Gaming Phone Case">
+            <p>🎮 Gaming Phone Case</p>
+            <a href="#" class="shop-btn">Buy Now</a>
+        </div>
+    </div>
+    <button id="back-to-top" onclick="scrollToTop()">⬆️</button>
+    <script>
+        function toggleMode() {
+            const root = document.documentElement;
+            if (root.style.getPropertyValue('--bg-color') === '#121212') {
+                root.style.setProperty('--bg-color', '#FFFFFF');
+                root.style.setProperty('--text-color', '#000000');
+                root.style.setProperty('--card-bg', '#F0F0F0');
+            } else {
+                root.style.setProperty('--bg-color', '#121212');
+                root.style.setProperty('--text-color', '#D3D3D3');
+                root.style.setProperty('--card-bg', '#1e1e1e');
+            }
+        }
+        
+        window.onscroll = function() {
+            let backToTop = document.getElementById("back-to-top");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTop.style.display = "block";
+            } else {
+                backToTop.style.display = "none";
+            }
+        };
+        
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
+</body>
+</html>
